@@ -1,0 +1,1100 @@
+<!DOCTYPE html><html lang='en'>
+<head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Conflict News — 2026-03-11</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh}
+a{color:#60a5fa;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── Sticky header ── */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(15,17,23,0.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid #1e2535;padding:12px 16px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap
+}
+.site-header h1{font-size:1.05em;font-weight:700;color:#f1f5f9}
+.site-header h1 small{font-size:0.6em;font-weight:400;color:#64748b;margin-left:6px}
+.stats-pills{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.pill{background:#1e2535;color:#94a3b8;border-radius:20px;
+      padding:3px 10px;font-size:0.72em;font-weight:500;white-space:nowrap}
+.pill b{color:#e2e8f0}
+.pill.warn b{color:#f87171}
+
+/* ── Main layout ── */
+.page-wrap{max-width:1280px;margin:0 auto;padding:16px 12px}
+
+/* ── Filter bar ── */
+.filter-bar{
+  display:flex;gap:8px;align-items:center;
+  margin-bottom:20px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  padding-bottom:6px;scrollbar-width:none
+}
+.filter-bar::-webkit-scrollbar{display:none}
+.filter-bar span{font-size:0.78em;color:#64748b;white-space:nowrap;margin-right:2px}
+.filter-btn{
+  background:#1e2535;border:1px solid #2d3748;color:#94a3b8;
+  border-radius:20px;padding:6px 14px;font-size:0.78em;cursor:pointer;
+  font-family:inherit;transition:all .15s;white-space:nowrap;flex-shrink:0
+}
+.filter-btn:hover,.filter-btn.active{
+  background:#2563eb;border-color:#2563eb;color:#fff
+}
+
+/* ── Analysis grid ── */
+.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.analysis-box{background:#161b27;border-radius:12px;padding:18px 20px;
+              border:1px solid #1e2535}
+.analysis-box.today{border-top:3px solid #2563eb}
+.analysis-box.expect{border-top:3px solid #059669}
+.analysis-box .box-label{font-size:0.68em;font-weight:600;text-transform:uppercase;
+                          letter-spacing:.1em;color:#64748b;margin-bottom:4px}
+.analysis-box h2{font-size:1em;font-weight:700;color:#f1f5f9;margin-bottom:12px}
+.analysis-box ul{padding-left:16px}
+.analysis-box li{margin-bottom:9px;line-height:1.6;font-size:0.855em;color:#cbd5e1}
+
+/* ── Article cards ── */
+.cards-section{display:flex;flex-direction:column;gap:14px}
+.card{
+  background:#161b27;border-radius:12px;
+  border:1px solid #1e2535;
+  display:flex;flex-direction:row;gap:0;overflow:hidden;
+  transition:border-color .15s,box-shadow .15s
+}
+.card:hover{border-color:#2d3748;box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.card.biased{border-left:3px solid #ef4444}
+
+.card-image{flex:0 0 260px;max-width:260px;position:relative}
+.card-image img{width:100%;height:100%;object-fit:cover;display:block}
+.card-image .no-img{
+  width:100%;height:100%;min-height:160px;background:linear-gradient(135deg,#1a1f2e 0%,#0f1117 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;border-right:1px solid #1e2535
+}
+.card-image .no-img svg{opacity:0.25}
+.card-image .no-img span{font-size:0.72em;font-weight:500;color:#374151;
+                          letter-spacing:.06em;text-transform:uppercase}
+
+.card-body{flex:1;padding:16px 18px;display:flex;flex-direction:column;gap:9px;min-width:0}
+
+.card-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.source-badge{
+  border-radius:4px;padding:3px 10px;font-size:0.68em;font-weight:600;
+  color:#fff;letter-spacing:.02em;white-space:nowrap
+}
+.date-label{font-size:0.72em;color:#64748b}
+
+.card-title{font-size:0.97em;font-weight:600;line-height:1.45;color:#f1f5f9}
+.card-summary{font-size:0.84em;color:#94a3b8;line-height:1.65}
+.read-link{font-size:0.8em;color:#60a5fa;font-weight:500}
+
+.bias-tags{display:flex;gap:6px;flex-wrap:wrap}
+.bias-badge{border-radius:4px;padding:2px 9px;font-size:0.7em;
+            font-weight:500;color:#fff;white-space:nowrap}
+
+.bias-panel{background:#1a1f2e;border:1px solid #2d3748;border-radius:8px;
+            padding:12px 14px;margin-top:2px}
+.bias-panel .bp-label{font-size:0.68em;font-weight:700;text-transform:uppercase;
+                       letter-spacing:.08em;color:#f87171;margin-bottom:8px;display:block}
+.bias-panel .bp-expl{font-size:0.8em;color:#cbd5e1;line-height:1.6;margin-bottom:10px}
+.who-box{background:#1e1a0e;border:1px solid #44370a;border-radius:6px;
+         padding:9px 12px;font-size:0.78em;color:#fcd34d;line-height:1.55}
+.who-box b{color:#fde68a}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0f1117}
+::-webkit-scrollbar-thumb{background:#2d3748;border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:#4a5568}
+
+/* ── Mobile (max 640px) ── */
+@media(max-width:640px){
+  .site-header{padding:10px 12px;gap:8px}
+  .site-header h1{font-size:0.95em}
+  .stats-pills{gap:4px}
+  .pill{font-size:0.68em;padding:2px 8px}
+
+  .page-wrap{padding:12px 10px}
+
+  .analysis-grid{grid-template-columns:1fr}
+
+  .card{flex-direction:column}
+  .card-image{flex:none;max-width:100%;width:100%;height:200px}
+  .card-image img{height:200px;width:100%;object-fit:cover}
+  .card-image .no-img{min-height:120px;height:120px}
+  .card-body{padding:14px 14px}
+  .card-title{font-size:0.95em}
+  .card-summary{font-size:0.82em}
+}
+
+/* ── Tablet (641px – 900px) ── */
+@media(min-width:641px) and (max-width:900px){
+  .card-image{flex:0 0 200px;max-width:200px}
+  .analysis-grid{grid-template-columns:1fr}
+  .page-wrap{padding:16px 14px}
+}
+</style>
+
+<script>
+function filterCards(source) {
+  const btns = document.querySelectorAll('.filter-btn');
+  btns.forEach(b => b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  const cards = document.querySelectorAll('.card[data-source]');
+  cards.forEach(c => {
+    c.style.display = (source === 'all' || c.dataset.source === source) ? 'flex' : 'none';
+  });
+}
+</script>
+</head><body>
+<header class='site-header'>
+  <h1>Conflict News <small>2026-03-10 &mdash; 2026-03-11</small></h1>
+  <div class='stats-pills'>
+    <span class='pill'><b>63</b> articles</span>
+    <span class='pill warn'><b>2</b> flagged</span>
+    <span class='pill'><b>Al Jazeera</b> 10</span> <span class='pill'><b>BBC News</b> 10</span> <span class='pill'><b>CNN</b> 1</span> <span class='pill'><b>DW News</b> 6</span> <span class='pill'><b>France 24</b> 10</span> <span class='pill'><b>NPR</b> 8</span> <span class='pill'><b>New York Times</b> 10</span> <span class='pill'><b>The Guardian</b> 8</span>
+  </div>
+</header>
+<div class='page-wrap'>
+<div class='analysis-grid'>
+  <div class='analysis-box today'>
+    <div class='box-label'>AI Analysis</div>
+    <h2>Today in the News</h2>
+   <ul>
+<li>The United States struck Iranian mine-laying vessels near the Strait of Hormuz on Day 12 of the war, with the Pentagon stating it has destroyed 16 Iranian ships to date. US Defense Secretary Pete Hegseth announced what he described as the "most intense" day of US strikes on Iran, saying the Pentagon was providing President Trump with "maximum options."</li>
+<li>Iran launched what it called its "most intense" retaliatory operation of the war, targeting Israel and US allies in the Gulf. Iranian drones targeted a Saudi Arabian oil field and Dubai's airport; Saudi Arabia said it neutralized five drones, while disruptions were reported in the UAE.</li>
+<li>Israel struck central Beirut, hitting an apartment block and killing Iranians in a luxury hotel whom Israel identified as Quds Force operatives; Iran said the individuals were diplomats. Lebanon's health ministry reported five killed in strikes, and the number of displaced people in Lebanon surpassed 700,000. Lebanon's President Aoun called for talks with Israel on a plan to end the Hezbollah conflict.</li>
+<li>Japan and Germany announced they would release strategic oil reserves as the Strait of Hormuz — a conduit for approximately one-fifth of global oil supply — remained effectively closed due to Iranian threats and ongoing naval combat. At least 85 countries have reported petrol price increases since the war began on February 28.</li>
+<li>Iran's new Supreme Leader Mojtaba Khamenei was reported by Iranian and Israeli officials to have been wounded early in the war, with leg injuries. He has not been seen publicly since being announced as leader three days ago. Iran's security chief warned that anti-government protesters would be treated as an "enemy."</li>
+<li>A majority of US Senate Democrats demanded that Defense Secretary Hegseth disclose whether the US carried out a strike on an Iranian school. An NPR/PBS News/Marist poll found a majority of Americans oppose US involvement in the war. Spain recalled its ambassador from Israel, citing opposition to the war and actions in Gaza.</li>
+</ul>
+  </div>
+  <div class='analysis-box expect'>
+    <div class='box-label'>Forward Look</div>
+    <h2>What to Expect Next</h2>
+   <ul>
+<li>With the Strait of Hormuz effectively closed and multiple nations releasing strategic oil reserves, analysts expect continued upward pressure on global energy prices and potential fuel rationing measures in import-dependent countries, as already seen in the Philippines and Pakistan. Historically, prolonged disruptions to Gulf shipping lanes have triggered sustained economic consequences well beyond the region.</li>
+<li>Iran's declared strategy of "war of attrition on several fronts" — targeting Gulf infrastructure and maintaining pressure through proxies — suggests the conflict may widen rather than contract in the near term. Observers are watching whether Yemen-based Houthis will reopen hostilities near the Red Sea's Bab el-Mandeb strait, which would further constrict global shipping.</li>
+<li>Lebanon's call for ceasefire talks with Israel, combined with the growing displacement crisis exceeding 700,000 people, historically parallels diplomatic openings seen during the 2006 Lebanon war. However, analysts note that simultaneous Israeli escalation in central Beirut complicates prospects for near-term de-escalation on the Lebanese front.</li>
+<li>Growing domestic opposition in the US, alongside allied governments questioning the legality and scope of the strikes — as seen with Australian Labor MPs and Spanish diplomatic action — may increase political pressure on the Trump administration to articulate a defined endgame. Historically, declining public support has constrained US military campaigns, though the timeline for policy impact varies significantly.</li>
+<li>Reports of Russia assisting Iran's military suggest the conflict could become a broader geopolitical proxy confrontation. Analysts expect diplomatic activity at the UN Security Council to intensify, though historically, vetoes by permanent members have limited the body's ability to mandate ceasefires in conflicts involving major powers.</li>
+</ul>
+  </div>
+</div>
+<div class='filter-bar'>
+  <span>Filter by source:</span>
+  <button class='filter-btn active' onclick='filterCards("all")'>All</button>
+  <button class='filter-btn' onclick='filterCards("Al Jazeera")'>Al Jazeera</button>
+  <button class='filter-btn' onclick='filterCards("BBC News")'>BBC News</button>
+  <button class='filter-btn' onclick='filterCards("CNN")'>CNN</button>
+  <button class='filter-btn' onclick='filterCards("DW News")'>DW News</button>
+  <button class='filter-btn' onclick='filterCards("France 24")'>France 24</button>
+  <button class='filter-btn' onclick='filterCards("NPR")'>NPR</button>
+  <button class='filter-btn' onclick='filterCards("New York Times")'>New York Times</button>
+  <button class='filter-btn' onclick='filterCards("The Guardian")'>The Guardian</button>
+</div>
+<div class='cards-section'>
+<div class='card biased' data-source='The Guardian'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\The_US-Israeli_strategy_failed_to_defeat_Iran_quic_0.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#005689'>The Guardian</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>The US-Israeli strategy failed to defeat Iran quickly – now they are moving to plan B</div>
+    <div class='bias-tags'>
+      <span class="bias-badge" style="background:#e67e22">Opinion/Editorial</span>
+    </div>
+    <a class='read-link' href='https://www.theguardian.com/commentisfree/2026/mar/11/us-israel-iran-plan-b-strategy-dahiya-doctrine' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>It’s called the Dahiya doctrine – and the IDF and US air force are using it to destroy domestic support in IranPaul Rogers is emeritus professor of peace studies at Bradford University and author of Losing Control: International Security in the 21st Century</div>
+    <div class='bias-panel'>
+      <span class='bp-label'>Bias Analysis</span>
+      <div class='bp-expl'><b>What makes it biased:</b><br>This is an opinion or editorial piece, not objective reporting. The author's personal viewpoint shapes the narrative.</div>
+      <div class='who-box'><b>Who this benefits:</b><br><b>The Guardian</b> leans <b>Center-left</b>. Tends to be sympathetic to Palestinian civilian perspectives and critical of Israeli military operations.</div>
+    </div>
+  </div>
+</div>
+<div class='card' data-source='The Guardian'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Iran’s_regional_proxies_hold_back_from_all-out_war_1.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#005689'>The Guardian</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Iran’s regional proxies hold back from all-out war with US and Israel</div>
+    <a class='read-link' href='https://www.theguardian.com/world/2026/mar/11/irans-regional-proxies-hold-back-from-all-out-war-with-us-and-israel' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Observers wait to see if Yemen-based Houthis will reopen hostilities as US warships approach Red Sea chokepoint</div>
+  </div>
+</div>
+<div class='card' data-source='The Guardian'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Iranians_living_in_UK_tell_Starmer_that_war_will_o_2.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#005689'>The Guardian</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>Iranians living in UK tell Starmer that war will only strengthen Tehran regime</div>
+    <a class='read-link' href='https://www.theguardian.com/world/2026/mar/10/iranians-living-in-uk-warn-starmer-war-nazanin-zaghari-ratcliffe-letter' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Nazanin Zaghari-Ratcliffe among more than 100 signatories to letter urging PM not to get drawn further into the conflict</div>
+  </div>
+</div>
+<div class='card' data-source='The Guardian'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Labor_MPs_quietly_alarmed_by_Albanese_government’s_3.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#005689'>The Guardian</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>Labor MPs quietly alarmed by Albanese government’s response to US-Israel strikes on Iran</div>
+    <a class='read-link' href='https://www.theguardian.com/australia-news/2026/mar/10/albanese-government-response-iran-war-labor-mps' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Exclusive: Several MPs question why the party rushed to endorse strikes that were likely in breach of international lawFollow our Australia news live blog for latest updatesGet our breaking news email, free app or daily news podcast</div>
+  </div>
+</div>
+<div class='card' data-source='The Guardian'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Five_killed_in_strikes_on_Lebanon,_health_ministry_4.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#005689'>The Guardian</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Five killed in strikes on Lebanon, health ministry reports – as it happened</div>
+    <a class='read-link' href='https://www.theguardian.com/world/live/2026/mar/10/iran-war-live-updates-iranian-supreme-leader-mojtaba-khamenei-middle-east-tehran-oil-prices-latest-news' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>This live blog is now closed – our coverage of the Middle East crisis continues hereMiddle East crisis – live updates</div>
+  </div>
+</div>
+<div class='card' data-source='The Guardian'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\‘If_I_go_home,_we_don’t_have_enough_money’__the_lo_5.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#005689'>The Guardian</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>‘If I go home, we don’t have enough money’: the low-paid Filipino workers caught up in the war on Iran</div>
+    <a class='read-link' href='https://www.theguardian.com/world/2026/mar/11/iran-war-filipino-workers-israel' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Filipino carer Mary Ann De Vera was the first victim of the war in Israel, while thousands of others remain in vulnerable positions across the Middle East</div>
+  </div>
+</div>
+<div class='card' data-source='The Guardian'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Pete_Hegseth_warns_of_‘most_intense’_day_of_US_str_6.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#005689'>The Guardian</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>Pete Hegseth warns of ‘most intense’ day of US strikes on Iran yet</div>
+    <a class='read-link' href='https://www.theguardian.com/world/2026/mar/10/hegseth-iran-intense-strikes-civilian-deaths' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Pentagon chief spoke with Gen Dan Caine at a press conference and blamed Iran for civilian casualties Sign up for the Breaking News US email to get newsletter alerts in your inbox</div>
+  </div>
+</div>
+<div class='card' data-source='The Guardian'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Fuel_supply_and_Middle_East_conflict_dominate_poli_7.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#005689'>The Guardian</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>Fuel supply and Middle East conflict dominate political debate – as it happened</div>
+    <a class='read-link' href='https://www.theguardian.com/australia-news/live/2026/mar/10/iran-football-team-tony-burke-anthony-albanese-labor-angus-taylor-coalition-oil-price-inflation-federal-parliament-ntwnfb' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Follow updates live‘I’m buggered’: David Littleproud resigns as leader of National party as Matt Canavan flags tiltGet our breaking news email, free app or daily news podcast</div>
+  </div>
+</div>
+<div class='card' data-source='BBC News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\US_strikes_minelaying_ships_in_Iran_after_warning__0.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#bb1919'>BBC News</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>US strikes minelaying ships in Iran after warning of 'intense' day of bombing</div>
+    <a class='read-link' href='https://www.bbc.com/news/articles/cgrzken84q5o?at_medium=RSS&at_campaign=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>US intelligence assets believe Iran is preparing to deploy naval mines in the Strait of Hormuz, the world's busiest oil shipping channel.</div>
+  </div>
+</div>
+<div class='card' data-source='BBC News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Member_of_Iranian_football_delegation_granted_Aust_1.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#bb1919'>BBC News</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Member of Iranian football delegation granted Australian asylum changes her mind</div>
+    <a class='read-link' href='https://www.bbc.com/news/articles/c93j2492d0do?at_medium=RSS&at_campaign=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>One of the seven women who received visas has reversed her decision after speaking to teammates, minister says</div>
+  </div>
+</div>
+<div class='card' data-source='BBC News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Inside_the_Australian_hotel_where_Iranian_football_2.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#bb1919'>BBC News</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Inside the Australian hotel where Iranian footballers escaped to claim asylum</div>
+    <a class='read-link' href='https://www.bbc.com/news/articles/c15x1928n48o?at_medium=RSS&at_campaign=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Activists played a key role in making contact with the women as they tried to dodge their minders.</div>
+  </div>
+</div>
+<div class='card' data-source='BBC News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\War_expands_to_central_Beirut_as_Israeli_strike_ki_3.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#bb1919'>BBC News</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>War expands to central Beirut as Israeli strike kills Iranians in luxury hotel</div>
+    <a class='read-link' href='https://www.bbc.com/news/articles/c2k8y7vy78no?at_medium=RSS&at_campaign=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Israel's military says it targeted Quds Force operatives after a return to war with Lebanon's Hezbollah movement, but Iran says they were diplomats.</div>
+  </div>
+</div>
+<div class='card' data-source='BBC News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\'I_just_want_to_be_able_to_sleep'__Attacks_in_Iran_4.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#bb1919'>BBC News</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>'I just want to be able to sleep': Attacks in Iran rock cities and cut power</div>
+    <a class='read-link' href='https://www.bbc.com/news/articles/cev7llekwllo?at_medium=RSS&at_campaign=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Iranians in Tehran and Karaj tell the BBC they are exhausted and struggling to sleep after 10 days of Israeli and US attacks.</div>
+  </div>
+</div>
+<div class='card' data-source='BBC News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Lebanon_calls_for_talks_with_Israel_on_plan_to_end_5.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#bb1919'>BBC News</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>Lebanon calls for talks with Israel on plan to end Hezbollah conflict</div>
+    <a class='read-link' href='https://www.bbc.com/news/articles/cd9g5p3ppxlo?at_medium=RSS&at_campaign=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>President Aoun outlines a path towards "permanent security and stability", as Israeli strikes targeting Hezbollah continue.</div>
+  </div>
+</div>
+<div class='card' data-source='BBC News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\GPS_jamming__The_invisible_battle_in_the_Middle_Ea_6.png' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#bb1919'>BBC News</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>GPS jamming: The invisible battle in the Middle East</div>
+    <a class='read-link' href='https://www.bbc.com/news/articles/c3ewwlx9e1xo?at_medium=RSS&at_campaign=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>GPS jamming has made navigation hazardous in the Gulf, spurring efforts to develop alternatives.</div>
+  </div>
+</div>
+<div class='card' data-source='BBC News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\In_maps__12_days_of_strikes_across_the_Middle_East_7.png' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#bb1919'>BBC News</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>In maps: 12 days of strikes across the Middle East</div>
+    <a class='read-link' href='https://www.bbc.com/news/articles/c4g0pnnj8xyo?at_medium=RSS&at_campaign=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>The US says it "eliminated" 16 Iranian ships as Israel carried out further attacks in Lebanon and Iran.</div>
+  </div>
+</div>
+<div class='card' data-source='BBC News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\'Bombs_exploded'_-_Iranians_describe_fleeing_the_c_8.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#bb1919'>BBC News</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>'Bombs exploded' - Iranians describe fleeing the country</div>
+    <a class='read-link' href='https://www.bbc.com/news/videos/ckg1e540jz5o?at_medium=RSS&at_campaign=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>The BBC's Emily Wither speaks to people who have left Iran on a border crossing in eastern Turkey.</div>
+  </div>
+</div>
+<div class='card' data-source='BBC News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Video_released_by_US_shows_strikes_on_Iranian_vess_9.png' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#bb1919'>BBC News</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Video released by US shows strikes on Iranian vessels near Strait of Hormuz</div>
+    <a class='read-link' href='https://www.bbc.co.uk/programmes/p0n5vrfw?at_medium=RSS&at_campaign=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Video released by US shows strikes on Iranian vessels near Strait of Hormuz</div>
+  </div>
+</div>
+<div class='card biased' data-source='Al Jazeera'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Spain_removes_ambassador_from_Israel,_as_opposes_w_0.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#e8a000'>Al Jazeera</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Spain removes ambassador from Israel, as opposes war on Iran, Gaza genocide</div>
+    <div class='bias-tags'>
+      <span class="bias-badge" style="background:#e74c3c">Loaded language: genocide</span>
+    </div>
+    <a class='read-link' href='https://www.aljazeera.com/news/2026/3/11/spain-removes-ambassador-from-israel-as-opposes-war-on-iran-gaza-genocide?traffic_source=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Madrid recalls ambassador amid rising diplomatic tensions and criticism of US-Israeli actions in Iran.</div>
+    <div class='bias-panel'>
+      <span class='bp-label'>Bias Analysis</span>
+      <div class='bp-expl'><b>What makes it biased:</b><br>The term(s) <b>'genocide'</b> frame the situation in extreme moral terms typically used to condemn Israeli actions. This language goes beyond factual reporting and invokes international law violations.</div>
+      <div class='who-box'><b>Who this benefits:</b><br>Benefits the <b>Palestinian / anti-war narrative</b> — maximizes moral pressure on Israel and frames the conflict as a human rights crisis rather than a security operation.</div>
+    </div>
+  </div>
+</div>
+<div class='card' data-source='Al Jazeera'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\‘Siren_economy’__Why_tactical_wins_fail_to_bring_I_1.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#e8a000'>Al Jazeera</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>‘Siren economy’: Why tactical wins fail to bring Israel strategic safety</div>
+    <a class='read-link' href='https://www.aljazeera.com/features/2026/3/11/siren-economy-why-tactical-wins-fail-to-bring-israel-strategic-safety?traffic_source=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Analyst refers to 'security achievement gap' of tactical assassinations that fail to bring Israel security.</div>
+  </div>
+</div>
+<div class='card' data-source='Al Jazeera'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Al_Jazeera_visits_Middle_East’s_first_women-only_m_2.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#e8a000'>Al Jazeera</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Al Jazeera visits Middle East’s first women-only mosque</div>
+    <a class='read-link' href='https://www.aljazeera.com/video/newsfeed/2026/3/11/al-jazeera-visits-middle-easts-first-women-only-mosque?traffic_source=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Al Jazeera visited the first women-only mosque in the Middle East, in the Qatari capital Doha.</div>
+  </div>
+</div>
+<div class='card' data-source='Al Jazeera'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Which_countries_have_seen_the_highest_petrol_price_3.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#e8a000'>Al Jazeera</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Which countries have seen the highest petrol prices since the Iran war?</div>
+    <a class='read-link' href='https://www.aljazeera.com/news/2026/3/11/which-countries-have-seen-the-highest-petrol-prices-since-the-iran-war?traffic_source=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>At least 85 countries have reported petrol price rises since the attacks on Iran by the US and Israel on February 28.</div>
+  </div>
+</div>
+<div class='card' data-source='Al Jazeera'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Iran_security_chief_warns_against_anti-government__4.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#e8a000'>Al Jazeera</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Iran security chief warns against anti-government protests</div>
+    <a class='read-link' href='https://www.aljazeera.com/video/newsfeed/2026/3/11/iran-security-chief-warns-against-anti-government-protests?traffic_source=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Anti-government protesters will be treated as an “enemy” as US-Israeli attacks continue, says Iran’s security chief.</div>
+  </div>
+</div>
+<div class='card' data-source='Al Jazeera'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\How_much_a_day_of_war_on_Iran_costs_the_US_5.png' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#e8a000'>Al Jazeera</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>How much a day of war on Iran costs the US</div>
+    <a class='read-link' href='https://www.aljazeera.com/video/by-the-numbers-3/2026/3/11/how-much-a-day-of-war-on-iran-costs-the-us-2?traffic_source=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>The US spent $3.7 billion in the first four days of bombing Iran. Here’s the bill.</div>
+  </div>
+</div>
+<div class='card' data-source='Al Jazeera'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\12_days__How_2025_Iran_blueprint_trapped_US,_Israe_6.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#e8a000'>Al Jazeera</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>12 days: How 2025 Iran blueprint trapped US, Israel in longer war</div>
+    <a class='read-link' href='https://www.aljazeera.com/features/2026/3/11/12-days-how-2025-iran-blueprint-trapped-us-israel-in-longer-war?traffic_source=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Unlike the truce from last year's 12-day war, "decapitation" strikes have locked US and Israel in a war of attrition.</div>
+  </div>
+</div>
+<div class='card' data-source='Al Jazeera'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\4_day_week,_fewer_car_trips_in_Philippines_as_Iran_7.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#e8a000'>Al Jazeera</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>4 day week, fewer car trips in Philippines as Iran fallout bites</div>
+    <a class='read-link' href='https://www.aljazeera.com/video/newsfeed/2026/3/11/4-day-week-fewer-car-trips-in-philippines-as-iran-fallout-bites?traffic_source=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Rising fuel prices are pushing more people to use public transport and prompting a four-day work week in Manila.</div>
+  </div>
+</div>
+<div class='card' data-source='Al Jazeera'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Iranian_female_footballer_changes_mind_on_Australi_8.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#e8a000'>Al Jazeera</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Iranian female footballer changes mind on Australian asylum offer</div>
+    <a class='read-link' href='https://www.aljazeera.com/video/newsfeed/2026/3/11/iranian-female-footballer-changes-mind-on-australian-asylum-offer?traffic_source=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>One member of the Iranian women’s football team offered asylum by Australia has decided to return home to Iran.</div>
+  </div>
+</div>
+<div class='card' data-source='Al Jazeera'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Iran_declares_US-Israeli_economic,_banking_interes_9.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#e8a000'>Al Jazeera</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Iran declares US-Israeli economic, banking interests in region are targets</div>
+    <a class='read-link' href='https://www.aljazeera.com/news/2026/3/11/iran-declares-us-israeli-economic-banking-interests-in-region-as-targets?traffic_source=rss' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>IRGC releases a list of offices run by top US companies with Israeli links whose technology has been used militarily.</div>
+  </div>
+</div>
+<div class='card' data-source='New York Times'>
+  <div class='card-image'>
+    <div class='no-img'><svg width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='#94a3b8' stroke-width='1.2'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg><span>No image available</span></div>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#4a4a4a'>New York Times</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Live Updates: Japan and Germany to Release Oil as War in Iran Threatens Global Supply</div>
+    <a class='read-link' href='https://www.nytimes.com/live/2026/03/11/world/iran-war-news-trump-oil-israel' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>The Strait of Hormuz, a conduit for a fifth of the world’s oil, is all but closed as war in the Middle East expands. A British agency said three ships were hit by unidentified projectiles in or near the strait.</div>
+  </div>
+</div>
+<div class='card' data-source='New York Times'>
+  <div class='card-image'>
+    <div class='no-img'><svg width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='#94a3b8' stroke-width='1.2'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg><span>No image available</span></div>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#4a4a4a'>New York Times</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>How Trump’s War With Iran Changed the World in a Week</div>
+    <a class='read-link' href='https://www.nytimes.com/2026/03/11/world/europe/trump-iran-war-global-impact.html' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>The conflict is reshaping travel patterns, energy dependencies, living costs, trade routes and diplomatic alliances.</div>
+  </div>
+</div>
+<div class='card' data-source='New York Times'>
+  <div class='card-image'>
+    <div class='no-img'><svg width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='#94a3b8' stroke-width='1.2'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg><span>No image available</span></div>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#4a4a4a'>New York Times</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>World Heritage Sites Hit in Airstrikes on Iran</div>
+    <a class='read-link' href='https://www.nytimes.com/2026/03/11/world/middleeast/iram-heritage-sites-damaged.html' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Revered cultural icons that have withstood the upheavals of history are being hit hard in the war being waged by Israel and the United States.</div>
+  </div>
+</div>
+<div class='card' data-source='New York Times'>
+  <div class='card-image'>
+    <div class='no-img'><svg width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='#94a3b8' stroke-width='1.2'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg><span>No image available</span></div>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#4a4a4a'>New York Times</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Iran’s New Supreme Leader Was Wounded Early in the War, Iranian and Israeli Officials Say</div>
+    <a class='read-link' href='https://www.nytimes.com/2026/03/11/world/middleeast/khamenei-iran-leader-injured.html' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Officials say Mojtaba Khamenei’s legs were hurt, but the circumstances as well as the extent of his injuries were unclear. He has remained out of view since being announced as leader three days ago.</div>
+  </div>
+</div>
+<div class='card' data-source='New York Times'>
+  <div class='card-image'>
+    <div class='no-img'><svg width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='#94a3b8' stroke-width='1.2'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg><span>No image available</span></div>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#4a4a4a'>New York Times</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Trump Will Let Iran Play at 2026 World Cup in U.S., FIFA Chief Says</div>
+    <a class='read-link' href='https://www.nytimes.com/2026/03/11/world/europe/trump-iran-world-cup-fifa-infantino.html' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>The head of soccer’s global governing body, Gianni Infantino, said that President Trump had assured him the Iranian team could participate in this summer’s tournament despite the war in the Middle East.</div>
+  </div>
+</div>
+<div class='card' data-source='New York Times'>
+  <div class='card-image'>
+    <div class='no-img'><svg width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='#94a3b8' stroke-width='1.2'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg><span>No image available</span></div>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#4a4a4a'>New York Times</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>UK Bans Al Quds Protest March That Critics Say Supports Iranian Regime</div>
+    <a class='read-link' href='https://www.nytimes.com/2026/03/11/world/middleeast/uk-iran-al-quds-march-ban.html' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Britain’s government invoked rarely-used powers to ban a pro-Palestinian protest march scheduled for Sunday.</div>
+  </div>
+</div>
+<div class='card' data-source='New York Times'>
+  <div class='card-image'>
+    <div class='no-img'><svg width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='#94a3b8' stroke-width='1.2'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg><span>No image available</span></div>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#4a4a4a'>New York Times</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Democrats Demand Accountability from Hegseth on Iranian School Strike</div>
+    <a class='read-link' href='https://www.nytimes.com/2026/03/11/world/middleeast/democrats-hegseth-minab-school-strike.html' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>A majority of Senate Democrats called on Secretary of Defense Pete Hegseth to disclose whether the U.S. carried out the deadly attack.</div>
+  </div>
+</div>
+<div class='card' data-source='New York Times'>
+  <div class='card-image'>
+    <div class='no-img'><svg width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='#94a3b8' stroke-width='1.2'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg><span>No image available</span></div>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#4a4a4a'>New York Times</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>How Trump and His Advisers Miscalculated Iran’s Response to War</div>
+    <a class='read-link' href='https://www.nytimes.com/2026/03/10/us/politics/how-trump-miscalculated-iran-response.html' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>In the lead-up to the U.S.-Israeli attack, President Trump downplayed the risks to the energy markets as a short-term concern that should not overshadow the mission to decapitate the Iranian regime.</div>
+  </div>
+</div>
+<div class='card' data-source='New York Times'>
+  <div class='card-image'>
+    <div class='no-img'><svg width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='#94a3b8' stroke-width='1.2'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg><span>No image available</span></div>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#4a4a4a'>New York Times</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Missiles, Drones and Airstrikes Pound Middle East Into 12th Day of War</div>
+    <a class='read-link' href='https://www.nytimes.com/2026/03/10/world/middleeast/iran-war-israel-middle-east-strikes.html' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>The effects of the war are being felt through the Persian Gulf.</div>
+  </div>
+</div>
+<div class='card' data-source='New York Times'>
+  <div class='card-image'>
+    <div class='no-img'><svg width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='#94a3b8' stroke-width='1.2'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><polyline points='21 15 16 10 5 21'/></svg><span>No image available</span></div>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#4a4a4a'>New York Times</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Here’s What Happened in the War in the Middle East on Tuesday</div>
+    <a class='read-link' href='https://www.nytimes.com/2026/03/10/world/middleeast/iran-war-us-israel-lebanon-recap.html' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Trump administration officials cast the president as the sole arbiter on the U.S. war effort. International aid groups were warning of a growing humanitarian crisis in Lebanon, where nearly 700,000 people had been displaced, the U.N. said.</div>
+  </div>
+</div>
+<div class='card' data-source='NPR'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Americans_skeptical_of_the_Iran_war,_poll_says._An_0.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#1a6196'>NPR</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Americans skeptical of the Iran war, poll says. And, DOJ gives guns back to felons</div>
+    <a class='read-link' href='https://www.npr.org/2026/03/11/g-s1-113261/up-first-newsletter-iran-israel-us-georgia-clay-fuller-shawn-harris-second-amendment-rights-national-guard' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>A majority of Americans oppose the U.S.' involvement in the war with Iran, according to a new NPR/PBS News/Marist poll. And, the Department of Justice is quietly restoring gun rights to felons.</div>
+  </div>
+</div>
+<div class='card' data-source='NPR'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\U.S._attacks_Iranian_mine-laying_vessels_near_Horm_1.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#1a6196'>NPR</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>U.S. attacks Iranian mine-laying vessels near Hormuz on Day 12 of war</div>
+    <a class='read-link' href='https://www.npr.org/2026/03/11/nx-s1-5744029/us-iran-war' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Attacks and counterattacks continued throughout the Middle East Wednesday. Two cargo ships were struck in the Gulf, as some lawmakers in Washington pressed for answers on the war's rationale.</div>
+  </div>
+</div>
+<div class='card' data-source='NPR'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Iran_war_latest__Hegseth_says_today_marks_heaviest_2.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#1a6196'>NPR</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>Iran war latest: Hegseth says today marks heaviest bombing yet</div>
+    <a class='read-link' href='https://www.npr.org/2026/03/10/nx-s1-5743569/iran-war-latest-hegseth-says-today-marks-heaviest-bombing-yet' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Defense Secretary Pete Hegseth says Tuesday marks the most intense U.S. bombing yet in the Iran war. The 11 days of fighting have spooked oil markets, and the Strait of Hormuz is effectively closed.</div>
+  </div>
+</div>
+<div class='card' data-source='NPR'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Why_Russia_is_assisting_Iran's_military_3.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#1a6196'>NPR</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>Why Russia is assisting Iran's military</div>
+    <a class='read-link' href='https://www.npr.org/2026/03/10/nx-s1-5739339/why-russia-is-assisting-irans-military' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>NPR's Juana Summers speaks with Nicole Grajewski, professor at Sciences Po and author of Russia and Iran, about Russia's reported support of Iran's military.</div>
+  </div>
+</div>
+<div class='card' data-source='NPR'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Photos_from_Iran_and_across_the_Middle_East_as_the_4.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#1a6196'>NPR</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>Photos from Iran and across the Middle East as the war enters Week 2</div>
+    <a class='read-link' href='https://www.npr.org/2026/03/10/g-s1-113081/photos-iran-us-israel-war-middle-east-week-2' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>More than a week of the U.S. and Israel's war against Iran has dragged in global powers, upended the world's energy and transport sectors, and brought chaos to usually peaceful areas of the region.</div>
+  </div>
+</div>
+<div class='card' data-source='NPR'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Trump_gives_mixed_signals_on_Iran_war._And,_how_Ep_5.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#1a6196'>NPR</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>Trump gives mixed signals on Iran war. And, how Epstein built ties to scientists</div>
+    <a class='read-link' href='https://www.npr.org/2026/03/10/g-s1-113153/up-first-newsletter-iran-us-israel-lebanon-trump-new-york-protest-attack-epstein-lawsuit-immigration' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>President Trump provided conflicting messages about when the U.S. and Israel's war with Iran will end. And, NPR investigates how late convicted sex offender Jeffrey Epstein leveraged ties with scientists.</div>
+  </div>
+</div>
+<div class='card' data-source='NPR'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\The_U.S._vowed_its_'most_intense_day_of_strikes_in_6.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#1a6196'>NPR</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>The U.S. vowed its 'most intense day of strikes inside Iran'</div>
+    <a class='read-link' href='https://www.npr.org/2026/03/10/nx-s1-5742828/iran-war-us-trump' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Defense Secretary Pete Hegseth said the Pentagon was giving President Trump "maximum options" and that the war will not be "endless," a day after the president gave mixed signals about progress.</div>
+  </div>
+</div>
+<div class='card' data-source='NPR'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Old-school_tricks_and_AI_tech_are_weapons_in_the_I_7.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#1a6196'>NPR</span>
+      <span class='date-label'>2026-03-10</span>
+    </div>
+    <div class='card-title'>Old-school tricks and AI tech are weapons in the Iran war</div>
+    <a class='read-link' href='https://www.npr.org/2026/03/10/nx-s1-5741726/israel-iran-war-cyber-ai' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Cyberwarfare is coming out of the shadows in the Iran war, from hacking phone apps to recruiting agents online to embracing AI as a weapon.</div>
+  </div>
+</div>
+<div class='card' data-source='France 24'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Lebanese_displaced_by_Israeli_strikes_speak_to_FRA_0.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#003f87'>France 24</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Lebanese displaced by Israeli strikes speak to FRANCE 24</div>
+    <a class='read-link' href='https://www.france24.com/en/video/20260311-lebanese-displaced-by-israeli-strikes-speak-to-france-24' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>For the past ten days, Israel has been relentlessly bombing Hezbollah strongholds in Beirut’s southern suburbs as well as southern Lebanon. As the number of displaced people now approaches 760,000, some have found shelter in reception centres in the capital, while others are forced to sleep on the streets. Our special correspondents spoke to several of them.</div>
+  </div>
+</div>
+<div class='card' data-source='France 24'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\While_southern_Lebanon_evacuates,_northern_Israel__1.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#003f87'>France 24</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>While southern Lebanon evacuates, northern Israel stays put</div>
+    <a class='read-link' href='https://www.france24.com/en/while-southern-lebanon-evacuates-northern-israel-stays-put' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>France will be sending 60 tons of humanitarian aid to Lebanon, as entire towns in the south of the country are under evacuation after orders were issued by the Israeli army. But across the border in Israel the strategy is different and many choose to stay put. The government is determined to keep people in their homes after it spent billions housing hundreds of thousands of displaced following the October 7 attacks.</div>
+  </div>
+</div>
+<div class='card' data-source='France 24'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Central_Beirut_targeted_by_Israeli_strikes_for_sec_2.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#003f87'>France 24</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Central Beirut targeted by Israeli strikes for second time since war started</div>
+    <a class='read-link' href='https://www.france24.com/en/central-beirut-targeted-by-israeli-strikes-for-second-time-since-war-started' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>An Israeli strike hit an apartment block in central Beirut on March 11, further widening Israeli attacks in the capital beyond the Hezbollah-controlled southern suburbs where ​heavy bombardment continued. Israeli strikes have killed nearly 600 people in Lebanon, and uprooted 700,000 more, according to Lebanese authorities.</div>
+  </div>
+</div>
+<div class='card' data-source='France 24'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\_No_sign_of_Iranian_uprising__despite_US-Israeli_e_3.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#003f87'>France 24</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>"No sign of Iranian uprising" despite US-Israeli encouragement</div>
+    <a class='read-link' href='https://www.france24.com/en/no-sign-of-iranian-uprising-despite-us-israeli-encouragement' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Iran's new supreme leader Mojtaba Khamenei is injured but "safe and sound", the son of the president said on March 11, offering the first official explanation for why the 56-year-old has not been seen since his appointment. Meanwhile, the US and Israel are hoping to see an uprising in Iran which would dislodge the regime - to no avail. FRANCE 24's Angela Diffley looks into the political situation in the country.</div>
+  </div>
+</div>
+<div class='card' data-source='France 24'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Dubai_airport_and_Saudi_oil_field_among_targets_of_4.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#003f87'>France 24</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Dubai airport and Saudi oil field among targets of Iranian drones</div>
+    <a class='read-link' href='https://www.france24.com/en/dubai-airport-and-saudi-oil-field-among-targets-of-iranian-drones' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Israel has warned of attacks as Iranian counterstrikes continue against it and US allies in the Gulf. Saudi Arabia said it has neutralised five drones targeting one of the kingdom's oil field, while drones also fell near Dubai's airport.</div>
+  </div>
+</div>
+<div class='card' data-source='France 24'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Not__unlikely__some_Iranian_football_players_press_5.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#003f87'>France 24</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Not "unlikely" some Iranian football players pressured to return from Australia</div>
+    <a class='read-link' href='https://www.france24.com/en/video/20260311-not-unlikely-some-iranian-football-players-pressured-to-return-from-australia-1' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Australian police helped two more members of the Iranian women's soccer delegation slip their minders to claim asylum, but one has changed her mind and decided to go back to Iran, according to authorities. Concerns about the players' safety upon their return home ‌grew after Iranian state television labelled the team "wartime traitors" for refusing to sing the national anthem during a women's Asian ⁠Cup match in Australia. FRANCE 24's Grégory Plesse breaks down what happened from Sydney.</div>
+  </div>
+</div>
+<div class='card' data-source='France 24'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Iran_adoption_a_strategy_of_'war_of_attrition_on_s_6.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#003f87'>France 24</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Iran adoption a strategy of 'war of attrition on several fronts'</div>
+    <a class='read-link' href='https://www.france24.com/en/iran-adoption-a-strategy-of-war-of-attrition-on-several-fronts' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>On the second week of the war in the Middle East, Iran continues to target Israel and US allies in the Gulf. More strikes have been intercepted, according to reports across several countries. Iran's targets include oil infrastructures, which is part of its "war of attrition" strategy, which applies on several fronts. FRANCE 24's Hoda Abdel-Hamid tells us more from Doha, in Qatar.</div>
+  </div>
+</div>
+<div class='card' data-source='France 24'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Israel_strikes_central_Beirut,_as_number_of_displa_7.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#003f87'>France 24</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Israel strikes central Beirut, as number of displaced goes over 700,000</div>
+    <a class='read-link' href='https://www.france24.com/en/israel-strikes-central-beirut-as-number-of-displaced-goes-over-700-000' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Central Beirut was targeted by fresh Israeli strikes in the early hours of March 11, for the second time since the star of the war. More than 560 people have been killed and over 700,000 displaced - about a tenth of the population - since Israeli started striking the country. FRANCE 24's Catherine Norris Trent has more from the ground.</div>
+  </div>
+</div>
+<div class='card' data-source='France 24'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Concern_grows_over_possibility_of_Iran_mining_Stra_8.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#003f87'>France 24</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>Concern grows over possibility of Iran mining Strait of Hormuz</div>
+    <a class='read-link' href='https://www.france24.com/en/concern-grows-over-possibility-of-iran-mining-strait-of-hormuz' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>The US says it has destroyed over a dozen Iranian ships capable of laying mines in the Strait of Hormuz. The crucial passage point for oil has been effectively closed due to Iranian threats. Trump warned Iran that the presence of mines would lead to military consequences "at a level never seen before".</div>
+  </div>
+</div>
+<div class='card' data-source='France 24'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\US-Israeli_bombing_destroyed_nearly_10,000_civilia_9.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#003f87'>France 24</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>US-Israeli bombing destroyed nearly 10,000 civilian sites, says Iranian UN envoy</div>
+    <a class='read-link' href='https://www.france24.com/en/us-israeli-bombing-destroyed-nearly-10-000-civilian-sites-says-iranian-un-envoy' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Tehran was targeted by heavy bombardments on March 11 as the US-Israeli military campaign continued. The day before, US Secretary Pete Hegseth had warned that Iran would know the 'most intense day' of US strikes. Nearly 10,000 civilian sites have been destroyed since the war started, according to Iran's U.N. envoy.</div>
+  </div>
+</div>
+<div class='card' data-source='DW News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Turkey_caught_in_the_middle_as_Iran_war_escalates_0.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#c8002d'>DW News</span>
+      <span class='date-label'></span>
+    </div>
+    <div class='card-title'>Turkey caught in the middle as Iran war escalates</div>
+    <a class='read-link' href='https://www.dw.com/en/turkey-caught-in-the-middle-as-iran-war-escalates/a-76295842?maca=en-rss-en-world-4025-rdf' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Turkey has been watching with growing concern as the war between its neighbor Iran and the US and Israel escalates. Ankara fears the conflict could destabilize the region.</div>
+  </div>
+</div>
+<div class='card' data-source='DW News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Can_the_US_military_sustain_a_long_war_in_Iran__1.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#c8002d'>DW News</span>
+      <span class='date-label'></span>
+    </div>
+    <div class='card-title'>Can the US military sustain a long war in Iran?</div>
+    <a class='read-link' href='https://www.dw.com/en/can-the-us-military-sustain-a-long-war-in-iran/a-76295419?maca=en-rss-en-world-4025-rdf' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Trump says the US has a "virtually unlimited" supply of weapons. His defense secretary says Iran has "no hope" of outlasting the US. But with reportedly low defensive missile stocks, how bullish should Washington be?</div>
+  </div>
+</div>
+<div class='card' data-source='DW News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Lebanese_fear_wider_war_as_Hezbollah-Israel_attack_2.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#c8002d'>DW News</span>
+      <span class='date-label'></span>
+    </div>
+    <div class='card-title'>Lebanese fear wider war as Hezbollah-Israel attacks escalate</div>
+    <a class='read-link' href='https://www.dw.com/en/lebanese-fear-wider-war-as-hezbollah-israel-attacks-escalate/a-76293444?maca=en-rss-en-world-4025-rdf' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>The expanding Middle East war has triggered a new displacement crisis in Lebanon. Amid ongoing attacks, Beirut has postponed parliamentary elections. What is happening to people on the ground?</div>
+  </div>
+</div>
+<div class='card' data-source='DW News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Pakistan_to_close_schools,_cut_spending_over_Iran__3.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#c8002d'>DW News</span>
+      <span class='date-label'></span>
+    </div>
+    <div class='card-title'>Pakistan to close schools, cut spending over Iran war</div>
+    <a class='read-link' href='https://www.dw.com/en/pakistan-to-close-schools-cut-spending-over-iran-war/a-76293311?maca=en-rss-en-world-4025-rdf' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Pakistan announced fuel- and cost-saving measures to mitigate the economic strain from the ongoing conflict in Iran. The steps include temporary school closures, government salary cuts, and a ban on iftar gatherings.</div>
+  </div>
+</div>
+<div class='card' data-source='DW News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Amid_Iran_war,_civilians_trapped_between_bombs_and_4.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#c8002d'>DW News</span>
+      <span class='date-label'></span>
+    </div>
+    <div class='card-title'>Amid Iran war, civilians trapped between bombs and regime</div>
+    <a class='read-link' href='https://www.dw.com/en/amid-iran-war-civilians-trapped-between-bombs-and-regime/a-76291146?maca=en-rss-en-world-4025-rdf' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>Iran's civilians are dealing with US and Israeli airstrikes amid an internet blackout and with nearly no protection provided by the state. Even regime opponents are losing hope that the war will be over soon.</div>
+  </div>
+</div>
+<div class='card' data-source='DW News'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\Charting_the_US-Israel_war_with_Iran_5.jpg' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#c8002d'>DW News</span>
+      <span class='date-label'></span>
+    </div>
+    <div class='card-title'>Charting the US-Israel war with Iran</div>
+    <a class='read-link' href='https://www.dw.com/en/charting-the-us-israel-war-with-iran/a-76209201?maca=en-rss-en-world-4025-rdf' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>The US-Israeli attacks on Iran have raised tensions in the Middle East. Here's a look at the Iran war in charts and maps.</div>
+  </div>
+</div>
+<div class='card' data-source='CNN'>
+  <div class='card-image'>
+    <img src='C:\Users\YDR\OneDrive\Documents\News Scraper\index_files\What_we_know_on_the_12th_day_of_the_US_and_Israel’_0.JPG' alt='' loading='lazy'>
+  </div>
+  <div class='card-body'>
+    <div class='card-top'>
+      <span class='source-badge' style='background:#cc0001'>CNN</span>
+      <span class='date-label'>2026-03-11</span>
+    </div>
+    <div class='card-title'>What we know on the 12th day of the US and Israel’s war with Iran | CNN</div>
+    <a class='read-link' href='https://www.cnn.com/2026/03/11/middleeast/us-israel-iran-middle-east-war-what-we-know-intl-hnk' target='_blank'>Read full article &rarr;</a>
+    <div class='card-summary'>A wave of strikes on Iran hit the capital and northern areas overnight into Wednesday, while Tehran launched what it called its “most intense” operation of the war, targeting Israel and Gulf nations, and attacks on ships near the Strait of Hormuz escalated.</div>
+  </div>
+</div>
+</div>
+</div>
+</body></html>
